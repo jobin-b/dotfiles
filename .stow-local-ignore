@@ -23,3 +23,4 @@ _darcs
 ^/COPYING
 
 mpd.conf
+grub/*
