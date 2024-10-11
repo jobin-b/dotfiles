@@ -36,5 +36,21 @@ M.ui = {
 	-- 	["@comment"] = { italic = true },
 	-- },
 }
+M.plugins = {
+  ["neovim/nvim-lspconfig"] = {
+    config = function()
+      require "plugins.configs.lspconfig"
+      require "custom.configs.lspconfig"
+    end,
+  },
+}
+
+-- Ensure NvimTree opens on startup
+local function open_nvim_tree()
+    require("nvim-tree.api").tree.open()
+end
+
+-- Use this to open NvimTree when Neovim starts without passing any file as an argument
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
 return M
